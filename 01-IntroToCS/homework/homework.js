@@ -17,7 +17,6 @@ return(total)
 function DecimalABinario(num) {
    var final = []
 
-
    while(num>0){
       final.unshift(num%2)
       num = Math.floor((num/2))

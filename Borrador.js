@@ -16,16 +16,17 @@
 // console.log(final)
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-'use strict';
+// 'use strict';
 
-let num = 1565
-let final = []
+// let num = 7
+// let final = []
 
 
-while(num>0){
-    final.unshift(num%2)
-    num = Math.floor((num/2))
-}
+// while(num>0){
+//     final.unshift(num%2)
+//     num = Math.floor((num/2))
+// }
 
-console.log(final.join(''))
+// console.log(final.join(''))
 
+///////////////////////////////////////////////////////////////////////////////
