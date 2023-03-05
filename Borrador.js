@@ -30,3 +30,69 @@
 // console.log(final.join(''))
 
 ///////////////////////////////////////////////////////////////////////////////
+
+function LinkedList() {
+    this.head = null
+}
+
+function Node(value) {
+    this.value = value;
+    this.next = null;
+}
+
+LinkedList.prototype.add = function(value){
+    var newNode = new Node(value);
+    var current = this.head;
+
+    if(!current){
+    this.head =  newNode;
+    return value;
+}
+
+    while (current.next){
+    current = current.next;
+    }
+    current.next = newNode;
+    return value;
+}
+
+LinkedList.prototype.length = function () {
+    var current = this.head
+    var  acum = 1
+    if(this.head === null){
+    return 0
+    }
+    if (current.next !== null){
+    acum = acum + 1
+    }
+    return acum
+}
+
+
+LinkedList.prototype.remove = function(){
+    var current = this.head;
+    if (!current){
+        return null;
+    }
+    if(current.next === null){
+        delete current.next;
+        return current.next;
+    }
+    else{
+        current = current.next
+    }
+}
+
+var miLista = new LinkedList();
+
+miLista.add(8)
+miLista.add(9)
+miLista.add(13)
+
+console.log(miLista)
+
+miLista.length()
+miLista.remove()
+
+console.log(miLista.remove())
+console.log(miLista)
