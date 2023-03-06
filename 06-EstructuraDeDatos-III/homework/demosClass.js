@@ -1,7 +1,7 @@
 function BinarySearchTree(value){
     this.value = value;
     this.left = null;
-    this.rigth = null;
+    this.right = null;
 }
 
 // ! Método INSERT -SIRVE PARA INSERTAR NODOS AL ARBOL
@@ -20,11 +20,11 @@ BinarySearchTree.prototype.insert = function(value){
         }
     } else{
         if(value > this.value){
-            if(!this.rigth) {
-                this.rigth = new BinarySearchTree(value);
+            if(!this.right) {
+                this.right = new BinarySearchTree(value);
                 return value;
             } else{
-                this.rigth.insert(value);
+                this.right.insert(value);
     }
     }
     }
@@ -33,7 +33,7 @@ BinarySearchTree.prototype.insert = function(value){
 BinarySearchTree.prototype.size = function(){
     var contador = 1;
     if(this.left) contador += this.left.size();
-    if(this.rigth) contador += this.rigth.size();
+    if(this.right) contador += this.right.size();
     return contador
 }
 
@@ -59,7 +59,7 @@ function tukis(value){
 BinarySearchTree.prototype.depthFirstForEach = function(cb){
     // orden depthFirstForEach => I D N
     this.left.depthFirstForEach(cb);
-    this.rigth.depthFirstForEach(cb);
+    this.right.depthFirstForEach(cb);
     cb(this.value);
 }
 

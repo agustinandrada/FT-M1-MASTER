@@ -98,41 +98,54 @@
 // console.log(cualquiera(2))
 
 ///////////////////////////////////////////////////////////////
-function HashTable() {
-    this.buckets = [];
-    this.numBuckets = 35;
-}
 
-HashTable.prototype.hash = function(value){
-    var contador = [];
+// function HashTable() {
+//     this.buckets = [];
+//     this.numBuckets = 35;
+// }
 
-    for(var i = 0; i<value.length; i++){
-    contador.push(value.charCodeAt(i));
-    }
-    let total = contador.reduce((a, b) => a + b, 0);
-    let codigo = total % this.numBuckets
-    return codigo
-}
+// HashTable.prototype.hash = function(value){
+//     var contador = [];
 
-HashTable.prototype.set = function(clave , value){
-    var par = {hash(clave) , value}
-    for(var i=0; i<35; i++){
-        if(this.buckets[])
-    }
-    }
+//     for(var i = 0; i<value.length; i++){
+//     contador.push(value.charCodeAt(i));
+//     }
+//     let total = contador.reduce((a, b) => a + b, 0);
+//     let codigo = total % this.numBuckets
+//     return codigo
+// }
 
-HashTable.prototype.hasKey = function(value){
-if(this.buckets.includes(value)){
-    return true;
-}
-else return false;
-}
+// HashTable.prototype.set = function(key , value){
+//     var lugar = this.hash(key);
+//     if(this.buckets[lugar] != null){
+//         this.buckets[lugar][key] = value;
+//     }else this.buckets[lugar] = {[key]: value};
+// }
 
-var palabra = new HashTable()
 
-console.log(palabra.hash('foo'))
-console.log(palabra.buckets)
+// HashTable.prototype.hasKey = function(value){
+// if(this.buckets.includes(value)){
+//     return true;
+// }
+// else return false;
+// }
 
-console.log(palabra.hasKey("hola"))
+// HashTable.prototype.get = function(key){
+//     var lugar = this.hash(key);
+//     if(this.buckets[lugar]){
+//         return this.buckets[lugar][key]
+//     }else return null
+// }
 
+// var palabra = new HashTable()
+
+// console.log(palabra.set('hola',4))
+// palabra.set('aloh', 6)
+// palabra.set('mira', 5)
+// console.log(palabra.hash('foo'))
+// console.log(palabra.buckets)
+
+// console.log(palabra.hasKey("hola"))
+
+/////////////////////////////////////////////////////////////////////////////
 
