@@ -24,6 +24,7 @@ LinkedList.prototype.add = function(value){
     return value
 }
 
+
 var miLista = new LinkedList();
 
 miLista.add(8)
