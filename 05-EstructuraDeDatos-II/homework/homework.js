@@ -152,7 +152,7 @@ HashTable.prototype.get = function(key){
 // --------------------------------
 
 module.exports = {
-   Node,
-   LinkedList,
-   HashTable,
+  Node,
+  LinkedList,
+  HashTable,
 };
