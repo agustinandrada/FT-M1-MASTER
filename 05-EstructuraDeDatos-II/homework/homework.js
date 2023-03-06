@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 /* EJERCICIO 1
 Implementar la clase LinkedList, definiendo los siguientes métodos:
@@ -108,6 +108,45 @@ function HashTable() {
   this.buckets = [];
   this.numBuckets = 35;
 }
+
+
+HashTable.prototype.hash = function(value){
+  var contador = [];
+
+  for(var i = 0; i<value.length; i++){
+  contador.push(value.charCodeAt(i));
+  }
+  let total = contador.reduce((a, b) => a + b, 0);
+  let codigo = total % this.numBuckets
+  return codigo
+}
+
+HashTable.prototype.set = function(key , value){
+  if(typeof key != 'string'){
+    throw TypeError('Keys must be strings')
+  }
+  var lugar = this.hash(key);
+  if(this.buckets[lugar] != null){
+      this.buckets[lugar][key] = value;
+  }else this.buckets[lugar] = {[key]: value};
+}
+
+HashTable.prototype.hasKey = function(key){
+  var lugar = this.hash(key);
+  if(this.buckets[lugar][key]){
+  return true;
+}
+else return false;
+}
+
+
+HashTable.prototype.get = function(key){
+  var lugar = this.hash(key);
+  if(this.buckets[lugar]){
+      return this.buckets[lugar][key]
+  }else return null
+}
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------

@@ -31,68 +31,108 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-function LinkedList() {
-    this.head = null
+// function LinkedList() {
+//     this.head = null
+// }
+
+// function Node(value) {
+//     this.value = value;
+//     this.next = null;
+// }
+
+// LinkedList.prototype.add = function(value){
+//     var newNode = new Node(value);
+//     var current = this.head;
+
+//     if(!current){
+//     this.head =  newNode;
+//     return value;
+// }
+
+//     while (current.next){
+//     current = current.next;
+//     }
+//     current.next = newNode;
+//     return value;
+// }
+
+// function cualquiera(value){
+//     return value % 2 === 0
+// }
+
+// LinkedList.prototype.search = function(value){
+//     var current = this.head;
+//     if (!current) return null;
+
+//     if(typeof value === "function" ){
+//         while (current){
+//             if(value(current.value)) return value;
+//             else current = current.next;
+//             }
+//             return null;
+//     }
+//     else{
+//     while (current){
+//     if(current.value === value) return value;
+//     else current = current.next;
+//     }
+//     return null;
+//     }
+// }
+
+// var miLista = new LinkedList();
+
+
+// miLista.add(3)
+// miLista.add(8)
+// miLista.add(9)
+// miLista.add(13)
+
+
+
+// console.log(miLista)
+
+// console.log(miLista.search(8))
+// console.log(miLista)
+
+// console.log(cualquiera(2))
+
+///////////////////////////////////////////////////////////////
+function HashTable() {
+    this.buckets = [];
+    this.numBuckets = 35;
 }
 
-function Node(value) {
-    this.value = value;
-    this.next = null;
-}
+HashTable.prototype.hash = function(value){
+    var contador = [];
 
-LinkedList.prototype.add = function(value){
-    var newNode = new Node(value);
-    var current = this.head;
-
-    if(!current){
-    this.head =  newNode;
-    return value;
-}
-
-    while (current.next){
-    current = current.next;
+    for(var i = 0; i<value.length; i++){
+    contador.push(value.charCodeAt(i));
     }
-    current.next = newNode;
-    return value;
+    let total = contador.reduce((a, b) => a + b, 0);
+    let codigo = total % this.numBuckets
+    return codigo
 }
 
-function cualquiera(value){
-    return value % 2 === 0
+HashTable.prototype.set = function(clave , value){
+    var par = {hash(clave) , value}
+    for(var i=0; i<35; i++){
+        if(this.buckets[])
+    }
+    }
+
+HashTable.prototype.hasKey = function(value){
+if(this.buckets.includes(value)){
+    return true;
+}
+else return false;
 }
 
-LinkedList.prototype.search = function(value){
-    var current = this.head;
-    if (!current) return null;
+var palabra = new HashTable()
 
-    if(typeof value === "function" ){
-        while (current){
-            if(value(current.value)) return value;
-            else current = current.next;
-            }
-            return null;
-    }
-    else{
-    while (current){
-    if(current.value === value) return value;
-    else current = current.next;
-    }
-    return null;
-    }
-}
+console.log(palabra.hash('foo'))
+console.log(palabra.buckets)
 
-var miLista = new LinkedList();
+console.log(palabra.hasKey("hola"))
 
 
-miLista.add(3)
-miLista.add(8)
-miLista.add(9)
-miLista.add(13)
-
-
-
-console.log(miLista)
-
-console.log(miLista.search(8))
-console.log(miLista)
-
-console.log(cualquiera(2))
